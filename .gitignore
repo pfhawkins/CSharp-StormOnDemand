@@ -1,0 +1,6 @@
+*.sln
+*.csproj
+bin/
+test-results/
+Main.cs
+main.cs
