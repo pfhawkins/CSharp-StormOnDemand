@@ -15,14 +15,13 @@ Can deserialize/serialize Classes, Hashtables, Dictionarys, Objects, Dynamic Obj
 The following show how to serialize by the specific object type into a JSON string
 
 #### Each of the following serialize methods will output the following ret string below , escape sequences removed for readability 
+ret = {"params":{"category":"provisioned","type":"XD.VM"}}
 
 	public class RequestServerList
 	{
 		public string category { get; set; };
 		public string type { get; set; };
 	}
-
-	string ret = {"params":{"category":"provisioned","type":"XD.VM"}}
 
 	public void SerializeDictionary ()
 	{
