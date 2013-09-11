@@ -1,5 +1,6 @@
 using System;
 using StormOnDemandAPI;
+using Newtonsoft.Json.Linq;
 
 namespace APIMethods
 {
@@ -7,6 +8,11 @@ namespace APIMethods
 	{
 		public static class Info
 		{
+			public static JObject MethodInfo (string method)
+			{
+				 return Documentation.docs["Utilities/Info"]["__methods"][method];
+			}
+
 			public static string Ping ( EncodeType encoding = EncodeType.JSON)
 			{
 				object options = string.Empty;

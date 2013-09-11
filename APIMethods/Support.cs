@@ -1,11 +1,17 @@
 using System;
 using StormOnDemandAPI;
+using Newtonsoft.Json.Linq;
 
 namespace APIMethods.Support
 {
 
 		public static class Alert
 		{
+			public static JObject MethodInfo (string method)
+			{
+				 return Documentation.docs["Support/Alert"]["__methods"][method];
+			}
+
 			public static string GetActive (object options, EncodeType encoding = EncodeType.JSON)
 			{
 				string method = "/Support/Alert/getActive";
@@ -15,6 +21,11 @@ namespace APIMethods.Support
 
 		public static class Ticket
 		{
+			public static JObject MethodInfo (string method)
+			{
+				 return Documentation.docs["Support/Ticket"]["__methods"][method];
+			}
+
 			public static string AddFeedback (object options, EncodeType encoding = EncodeType.JSON)
 			{
 				string method = "/Support/Ticket/addFeedback";

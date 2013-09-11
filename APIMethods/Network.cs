@@ -1,5 +1,6 @@
 using System;
 using StormOnDemandAPI;
+using Newtonsoft.Json.Linq;
 
 namespace APIMethods.Network
 {
@@ -7,6 +8,11 @@ namespace APIMethods.Network
 	{
 		public static class Domain
 		{
+			public static JObject MethodInfo (string method)
+			{
+				 return Documentation.docs["Network/DNS/Domain"]["__methods"][method];
+			}
+
 			public static string List (object options, EncodeType encoding = EncodeType.JSON)
 			{
 				string method = "/Network/DNS/Domain/list";
@@ -22,6 +28,11 @@ namespace APIMethods.Network
 
 		public static class Record
 		{
+			public static JObject MethodInfo (string method)
+			{
+				 return Documentation.docs["Network/DNS/Record"]["__methods"][method];
+			}
+
 			public static string Create (object options, EncodeType encoding = EncodeType.JSON)
 			{
 				string method = "/Network/DNS/Record/create";
@@ -54,6 +65,11 @@ namespace APIMethods.Network
 
 			public static class Region
 			{
+				public static JObject MethodInfo (string method)
+				{
+					 return Documentation.docs["Network/DNS/Record/Region"]["__methods"][method];
+				}
+
 				public static string Create (object options, EncodeType encoding = EncodeType.JSON)
 				{
 					string method = "/Network/DNS/Record/Region/create";
@@ -76,6 +92,11 @@ namespace APIMethods.Network
 
 		public static class Reverse
 		{
+			public static JObject MethodInfo (string method)
+			{
+				 return Documentation.docs["Network/DNS/Reverse"]["__methods"][method];
+			}
+
 			public static string Delete (object options, EncodeType encoding = EncodeType.JSON)
 			{
 				string method = "/Network/DNS/Reverse/delete";
@@ -92,6 +113,11 @@ namespace APIMethods.Network
 
 		public static class Zone
 		{
+			public static JObject MethodInfo (string method)
+			{
+				 return Documentation.docs["Network/DNS/Zone"]["__methods"][method];
+			}
+
 			public static string Create (object options, EncodeType encoding = EncodeType.JSON)
 			{
 				string method = "/Network/DNS/Zone/create";
@@ -132,6 +158,11 @@ namespace APIMethods.Network
 
 	public static class Firewall
 	{
+		public static JObject MethodInfo (string method)
+		{
+			 return Documentation.docs["Network/Firewall"]["__methods"][method];
+		}
+
 		public static string Details (object options, EncodeType encoding = EncodeType.JSON)
 		{
 			string method = "/Network/Firewall/details";
@@ -158,6 +189,11 @@ namespace APIMethods.Network
 
 		public static class Ruleset
 		{
+			public static JObject MethodInfo (string method)
+			{
+				 return Documentation.docs["Network/Firewall/Ruleset"]["__methods"][method];
+			}
+
 			public static string Create (object options, EncodeType encoding = EncodeType.JSON)
 			{
 				string method = "/Network/Firewall/Ruleset/create";
@@ -188,6 +224,11 @@ namespace APIMethods.Network
 
 	public static class IP
 	{
+		public static JObject MethodInfo (string method)
+		{
+			 return Documentation.docs["Network/IP"]["__methods"][method];
+		}
+
 		public static string Add (object options, EncodeType encoding = EncodeType.JSON)
 		{
 			string method = "/Network/IP/add";
@@ -234,6 +275,10 @@ namespace APIMethods.Network
 
 	public static class LoadBalancer
 	{
+		public static JObject MethodInfo (string method)
+		{
+			 return Documentation.docs["Network/LoadBalancer"]["__methods"][method];
+		}
 		public static string AddNode (object options, EncodeType encoding = EncodeType.JSON)
 		{
 			string method = "/Network/LoadBalancer/addNode";
@@ -310,6 +355,10 @@ namespace APIMethods.Network
 
 	public static class Pool
 	{
+		public static JObject MethodInfo (string method)
+		{
+			 return Documentation.docs["Network/Pool"]["__methods"][method];
+		}
 		public static string Create (object options, EncodeType encoding = EncodeType.JSON)
 		{
 			string method = "/Network/Pool/create";
@@ -343,6 +392,11 @@ namespace APIMethods.Network
 
 	public static class Private
 	{
+		public static JObject MethodInfo (string method)
+		{
+			 return Documentation.docs["Network/Private"]["__methods"][method];
+		}
+
 		public static string Attach (object options, EncodeType encoding = EncodeType.JSON)
 		{
 			string method = "/Network/Private/attach";
@@ -376,6 +430,11 @@ namespace APIMethods.Network
 
 	public static class Zone
 	{
+		public static JObject MethodInfo (string method)
+		{
+			 return Documentation.docs["Network/Zone"]["__methods"][method];
+		}
+
 		public static string Details (object options, EncodeType encoding = EncodeType.JSON)
 		{
 			string method = "/Network/Zone/details";

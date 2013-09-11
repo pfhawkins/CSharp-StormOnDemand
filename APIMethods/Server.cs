@@ -1,10 +1,17 @@
 using System;
 using StormOnDemandAPI;
+using System.Collections.Generic;
+using Newtonsoft.Json.Linq;
 
 namespace APIMethods
 {
 	public static class Server
 	{
+		public static JObject MethodInfo (string method)
+		{
+			 return Documentation.docs["Server"]["__methods"][method];
+		}
+
 		public static string Available (object options, EncodeType encoding = EncodeType.JSON)
 		{
 			string method = "/Server/available";
@@ -70,6 +77,11 @@ namespace APIMethods
 		{
 			public static class Domain
 			{
+				public static JObject MethodInfo (string method)
+				{
+					 return Documentation.docs["Server/VirtualDomain"]["__methods"][method];
+				}
+
 				public static string Create (object options, EncodeType encoding = EncodeType.JSON)
 				{
 					string method = "/Server/VirtualDomain/create";

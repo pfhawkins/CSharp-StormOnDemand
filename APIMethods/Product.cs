@@ -1,10 +1,16 @@
 using System;
 using StormOnDemandAPI;
+using Newtonsoft.Json.Linq;
 
 namespace APIMethods
 {
 	public static class Product
 	{
+		public static JObject MethodInfo (string method)
+		{
+			 return Documentation.docs["Product"]["__methods"][method];
+		}
+
 		public static string Details (object options, EncodeType encoding = EncodeType.JSON)
 		{
 			string method = "/Product/details";

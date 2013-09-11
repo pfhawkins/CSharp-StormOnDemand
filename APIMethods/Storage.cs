@@ -1,5 +1,6 @@
 using System;
 using StormOnDemandAPI;
+using Newtonsoft.Json.Linq;
 
 namespace APIMethods.Storage
 {
@@ -7,6 +8,11 @@ namespace APIMethods.Storage
 	{
 		public static class Cluster
 		{
+			public static JObject MethodInfo (string method)
+			{
+				 return Documentation.docs["Storage/Block/Cluster"]["__methods"][method];
+			}
+
 			public static string List (object options, EncodeType encoding = EncodeType.JSON)
 			{
 				string method = "/Storage/Block/Cluster/list";
@@ -16,6 +22,11 @@ namespace APIMethods.Storage
 
 		public static class Volume
 		{
+			public static JObject MethodInfo (string method)
+			{
+				 return Documentation.docs["Storage/Block/Volume"]["__methods"][method];
+			}
+
 			public static string Attach(object options, EncodeType encoding = EncodeType.JSON)
 			{
 				string method = "/Storage/Block/Volume/attach";
