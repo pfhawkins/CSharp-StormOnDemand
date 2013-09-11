@@ -7,8 +7,8 @@ namespace StormOnDemandAPI
 	public class GenericRequest : DynamicObject
 	{
 		// The inner dictionary.
-		public Dictionary<string, object> properties
-        = new Dictionary<string, object> ();
+		public Dictionary<string, dynamic> properties
+        = new Dictionary<string, dynamic> ();
 
 		// This property returns the number of elements 
 		// in the dictionary. 
