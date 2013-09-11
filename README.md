@@ -16,13 +16,13 @@ The following show how to serialize by the specific object type into a JSON stri
 
 #### Each of the following serialize methods will output the following ret string below , escape sequences removed for readability 
 
-public class RequestServerList
-{
-	public string category { get; set; };
-	public string type { get; set; };
-}
+	public class RequestServerList
+	{
+		public string category { get; set; };
+		public string type { get; set; };
+	}
 
-string ret = {"params":{"category":"provisioned","type":"XD.VM"}}
+	string ret = {"params":{"category":"provisioned","type":"XD.VM"}}
 
 	public void SerializeDictionary ()
 	{
@@ -79,7 +79,7 @@ The following show how to deserialize a JSON string to store in object types.
 		public string id { get; set; }
 	}
 
-string testData = "{"broadcast":"12.34.56.255","gateway":"12.34.254.1","ip":"64.91.254.81","netmask":"255.255.254.0","id":"987654"}";
+	string testData = "{"broadcast":"12.34.56.255","gateway":"12.34.254.1","ip":"64.91.254.81","netmask":"255.255.254.0","id":"987654"}";
 
 	public void DeserializeClass ()
 	{
