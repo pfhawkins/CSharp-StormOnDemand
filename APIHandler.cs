@@ -26,7 +26,7 @@ namespace StormOnDemandAPI
 
 		private static T Post<T> (Func<string, T> decode, string method, string parameters, EncodeType encoding = EncodeType.JSON)
 		{
-			// Use this to ignore monodevelop cert warnings
+			// Use this to ignore IDE cert warnings
 			ServicePointManager.ServerCertificateValidationCallback = ( se, cert, chain, sslerror ) => { return true; };
 
 			WebRequest _webRequest;
@@ -84,10 +84,11 @@ namespace StormOnDemandAPI
 		public static string Post (string method, object parameters , EncodeType encoding = EncodeType.JSON)
 		{
 			string pars = parameters != null ? JsonConvert.SerializeObject (parameters) : string.Empty;
+
 			// Handle API post based on encoding type
 			switch (encoding) {
 			case EncodeType.JSON: 
-				{
+				{					
 					Func<string, string> decode = responseStr => {
 						return (responseStr); };
 
