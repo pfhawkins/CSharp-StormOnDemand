@@ -18,8 +18,8 @@ The following show how to serialize by the specific object type into a JSON stri
 
 public class RequestServerList
 {
-	public string category;
-	public string type;
+	public string category { get; set; };
+	public string type { get; set; };
 }
 
 string ret = {"params":{"category":"provisioned","type":"XD.VM"}}
