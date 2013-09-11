@@ -11,7 +11,8 @@ namespace StormOnDemandAPI
 	public class ResponseServerList
 	{
 		public uint item_count { get; set; }
-		public uint item_total{ get; set; }
+		public uint item_total { get; set; }
+		//public string items { get; set; }
 		public Items items { get; set; }
 		public uint page_num { get; set; }
 		public uint page_size { get; set; }
