@@ -27,6 +27,7 @@ using System;
 using System.IO;
 using System.Globalization;
 using System.Collections;
+using System.Collections.Generic;
 #if !(NET20 || NET35 || SILVERLIGHT || PORTABLE40 || PORTABLE)
 using System.Numerics;
 #endif
@@ -499,9 +500,10 @@ namespace Newtonsoft.Json
     /// <returns>A JSON string representation of the object.</returns>
     public static string SerializeObject(object value)
     {
-			Hashtable hash = new Hashtable();
-			hash.Add ("params", value);
-      return SerializeObject(hash, Formatting.None, (JsonSerializerSettings) null);
+			Dictionary<string, dynamic> val = new Dictionary<string, dynamic>();
+			val.Add ("params", value);
+
+      return SerializeObject(val, Formatting.None, (JsonSerializerSettings) null);
     }
 
     /// <summary>
