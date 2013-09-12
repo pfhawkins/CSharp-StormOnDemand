@@ -49,10 +49,9 @@ namespace StormOnDemandAPI
 			byte[] buffer = Encoding.GetEncoding ("UTF-8").GetBytes (parameters != null ? parameters : string.Empty);
 
 			try {
+			//Wrap in using statments to implement IDisposable
 			using (Stream stream = _webRequest.GetRequestStream())
 				stream.Write (buffer, 0, buffer.Length);
-
-				//Wrap in using statments to implement IDisposable
 				using (_webResponse = _webRequest.GetResponse()) {
 					using (Stream stream = _webResponse.GetResponseStream()) {
 						using (StreamReader reader = new StreamReader( stream )) {

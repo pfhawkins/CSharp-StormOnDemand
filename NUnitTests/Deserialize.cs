@@ -10,16 +10,16 @@ namespace Tests
 	public class Deserialize
 	{
 		// Variables
-		Hashtable _hash;
-		string _testData;
+		Hashtable hash;
+		string testData;
 		Dictionary<string, dynamic> de;
-		ResponseIPDetails ipde;
+		IPDetailsResponse ipde;
 
 		[SetUp]
 		public void Init ()
 		{
 			//Sample api return of IPDetails method to test against
-			_testData = "{\"broadcast\":\"12.34.56.255\"," +
+			testData = "{\"broadcast\":\"12.34.56.255\"," +
 				"\"gateway\":\"12.34.254.1\"," +
 				"\"ip\":\"12.34.56.78\"," +
 				"\"netmask\":\"255.255.254.0\"," +
@@ -29,10 +29,10 @@ namespace Tests
 		[Test]
 		public void DeserializeClass ()
 		{
-			ipde = new ResponseIPDetails ();
+			ipde = new IPDetailsResponse ();
 
 			// Deserializes JSON string data to properties,value in ResponseIPDetails object
-			ipde = Newtonsoft.Json.JsonConvert.DeserializeObject<ResponseIPDetails> (_testData);
+			ipde = Newtonsoft.Json.JsonConvert.DeserializeObject<IPDetailsResponse> (testData);
 
 			//Check if properties/values are serialized properly
 			StringAssert.AreEqualIgnoringCase (ipde.broadcast, "12.34.56.255");
@@ -48,7 +48,7 @@ namespace Tests
 		{
 			de = new Dictionary<string, dynamic> ();
 			// Deserialize test JSON string in a Dictionary<T,T> object
-			de = Newtonsoft.Json.JsonConvert.DeserializeObject<Dictionary<string, dynamic>> (_testData);
+			de = Newtonsoft.Json.JsonConvert.DeserializeObject<Dictionary<string, dynamic>> (testData);
 
 			//Check if Dictionary keys,values are serialized properly
 			foreach (KeyValuePair<string,dynamic> en in de) {
@@ -68,13 +68,13 @@ namespace Tests
 		[Test]
 		public void DeserializeHash ()
 		{
-			_hash = new Hashtable ();
+			hash = new Hashtable ();
 
 			// Deserialize test JSON string in a Hashtable object
-			_hash = Newtonsoft.Json.JsonConvert.DeserializeObject<Hashtable> (_testData);
+			hash = Newtonsoft.Json.JsonConvert.DeserializeObject<Hashtable> (testData);
 
 			// Check if hashtable keys,values are serialized properly
-			foreach (DictionaryEntry en in _hash) {
+			foreach (DictionaryEntry en in hash) {
 				if (en.Key.ToString () == "broadcast")
 					StringAssert.AreEqualIgnoringCase (en.Value.ToString (), "12.34.56.255");
 				else if (en.Key.ToString () == "gateway")

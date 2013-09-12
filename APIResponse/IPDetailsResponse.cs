@@ -2,7 +2,7 @@ using System;
 
 namespace StormOnDemandAPI
 {
-	public class ResponseIPDetails
+	public class IPDetailsResponse
 	{
 		public string broadcast { get; set; }
 		public string gateway{ get; set; }
