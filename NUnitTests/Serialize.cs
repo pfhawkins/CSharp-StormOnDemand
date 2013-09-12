@@ -13,7 +13,6 @@ namespace Tests
 		//variables
 		string ret;
 		string desiredOutput;
-		Hashtable hash;
 		dynamic genRequest;
 		Dictionary<string, dynamic> de;
 		IPDetailsRequest ipDetails;
@@ -53,22 +52,6 @@ namespace Tests
 
 			// Checks if data is Serialized properly
 			Assert.IsInstanceOf<IPDetailsRequest>(ipDetails);
-			StringAssert.AreEqualIgnoringCase (desiredOutput, ret);
-		}
-
-		[Test]
-		public void SerializeHash()
-		{
-			hash = new Hashtable ();
-
-			hash.Add ("uniq_id", "ABCD12");
-			hash.Add ("ip", "12.34.56.78");
-
-			//Serializes Hashtable<keys,values> into JSON string
-			ret = JsonConvert.SerializeObject (hash);
-
-			// Checks if data is Serialized properly
-			Assert.IsInstanceOf<Hashtable>(hash);
 			StringAssert.AreEqualIgnoringCase (desiredOutput, ret);
 		}
 
