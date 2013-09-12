@@ -6,10 +6,6 @@ namespace StormOnDemandAPI
 	{
 		public string category;
 		public string type;
-
-		public RequestServerList ()
-		{
-		}
 	}
 }
 
