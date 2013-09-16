@@ -2,6 +2,7 @@ using System;
 using System.Net;
 using System.Collections.Generic;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System.Text.RegularExpressions;
 using StormOnDemandAPI;
 
@@ -21,13 +22,14 @@ namespace APIMethods
 			return docs = JsonConvert.DeserializeObject<Dictionary<string, dynamic>> (Regex.Replace (tmp, @"[\n]", " "));
 		}
 
-		public static string FindValue (string val)
+		public static JObject MethodInfo (string category, string method)
 		{ 
-			foreach (KeyValuePair<string, dynamic> en in docs) { 
-				if (en.Key.ToString () == val) 
-					return en.Value.ToString ();
-			}
-				return string.Format ("{0} not found", val); 
+			return docs[category]["__methods"][method]; 
+		}
+
+		public static JValue MethodInfo (string category, string method, string section)
+		{ 
+			return docs[category]["__methods"][method][section]; 
 		}
 	}
 }
