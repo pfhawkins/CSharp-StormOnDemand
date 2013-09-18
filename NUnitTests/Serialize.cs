@@ -64,7 +64,7 @@ namespace Tests
 			genRequest.Ip = "12.34.56.78";
 
 			// Serializes dynamic object properties,values into JSON string
-			ret = JsonConvert.SerializeObject (genRequest.properties);
+			ret = JsonConvert.SerializeObject (genRequest.values);
 
 			// Checks if data is Serialized properly
 			Assert.IsInstanceOf<GenericRequest>(genRequest);

@@ -4,30 +4,30 @@ using Newtonsoft.Json.Linq;
 
 namespace APIMethods.Storm
 {
-//		public enum Category {
-//		storm,
-//		ssd,
-//		baremetal,
-//		all };
-//
-//	public enum BandwidthQuota {
-//		AsYouGo = 0,
-//	};
-//
-//	public enum BackupEnabled {
-//		No = 0,
-//		Yes = 1
-//	};
-//
-//	public enum SkipFSResize {
-//		No = 0,
-//		Yes = 1
-//	};
-//
-//	public enum Force {
-//		No = 0,
-//		Yes = 1
-//	}
+		public enum Category {
+		storm,
+		ssd,
+		baremetal,
+		all };
+
+	public enum BandwidthQuota {
+		AsYouGo = 0,
+	};
+
+	public enum BackupEnabled {
+		No = 0,
+		Yes = 1
+	};
+
+	public enum SkipFSResize {
+		No = 0,
+		Yes = 1
+	};
+
+	public enum Force {
+		No = 0,
+		Yes = 1
+	}
 
 	public static class Backup
 	{

@@ -27,9 +27,9 @@ namespace APIMethods
 			return docs[category]["__methods"][method]; 
 		}
 
-		public static JValue MethodInfo (string category, string method, string section)
+		public static JValue MethodInfo (string category, string method, string parameters)
 		{ 
-			return docs[category]["__methods"][method][section]; 
+			return docs[category]["__methods"][method][parameters]; 
 		}
 	}
 }
