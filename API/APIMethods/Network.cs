@@ -33,17 +33,26 @@ namespace APIMethods.Network
 	{
 		public static class Domain
 		{
+			/// <summary>
+			/// Returns API documentation on a specific method in Network/DNS/Domain/
+			/// </summary>
 			public static JObject MethodInfo (string method)
 			{
 				 return Documentation.docs["Network/DNS/Domain"]["__methods"][method];
 			}
 
+			/// <summary>
+			/// Returns the list of domain registrations for a given account.
+			/// </summary>
 			public static string List (object options, EncodeType encoding = EncodeType.JSON)
 			{
 				string method = "/Network/DNS/Domain/list";
 				return APIHandler.Post (method, options, encoding);
 			}
 
+			/// <summary>
+			/// Renews a domain by insert it into the renewal queue.
+			/// </summary>
 			public static string Renew (object options, EncodeType encoding = EncodeType.JSON)
 			{
 				string method = "/Network/DNS/Domain/renew";
@@ -53,35 +62,56 @@ namespace APIMethods.Network
 
 		public static class Record
 		{
+			/// <summary>
+			/// Returns API documentation on a specific method in Network/DNS/Record/
+			/// </summary>
 			public static JObject MethodInfo (string method)
 			{
 				 return Documentation.docs["Network/DNS/Record"]["__methods"][method];
 			}
 
+			/// <summary>
+			/// This method is used to add new resource records (RRs) to a zone.
+			/// </summary>
 			public static string Create (object options, EncodeType encoding = EncodeType.JSON)
 			{
 				string method = "/Network/DNS/Record/create";
 				return APIHandler.Post (method, options, encoding);
 			}
 
+			/// <summary>
+			/// This method is used to delete resource records (RRs) from a zone file
+			/// It returns the 'deleted' field, whose value is the records id field.
+			/// </summary>
 			public static string Delete (object options, EncodeType encoding = EncodeType.JSON)
 			{
 				string method = "/Network/DNS/Record/delete";
 				return APIHandler.Post (method, options, encoding);
 			}
 
+			/// <summary>
+			/// Retrieve details about a particular resource record.
+			/// </summary>
 			public static string Details (object options, EncodeType encoding = EncodeType.JSON)
 			{
 				string method = "/Network/DNS/Record/details";
 				return APIHandler.Post (method, options, encoding);
 			}
 
+			/// <summary>
+			/// This method is used to get resource records (RRs) from a zone file.
+			/// Each entry in the 'items' array referrs to one of the records in the zone.
+			/// The details of these entries are further described in the 'details' method.
+			/// </summary>
 			public static string List (object options, EncodeType encoding = EncodeType.JSON)
 			{
 				string method = "/Network/DNS/Record/list";
 				return APIHandler.Post (method, options, encoding);
 			}
 
+			/// <summary>
+			/// This method is used to update resource records (RRs) in a zone.
+			/// </summary>
 			public static string Update (object options, EncodeType encoding = EncodeType.JSON)
 			{
 				string method = "/Network/DNS/Record/update";
@@ -90,23 +120,35 @@ namespace APIMethods.Network
 
 			public static class Region
 			{
+				/// <summary>
+				/// Returns API documentation on a specific method in Network/DNS/Record/Region/
+				/// </summary>
 				public static JObject MethodInfo (string method)
 				{
 					 return Documentation.docs["Network/DNS/Record/Region"]["__methods"][method];
 				}
 
+				/// <summary>
+				/// This sub is used to add a new region to a DNS Record.
+				/// </summary>
 				public static string Create (object options, EncodeType encoding = EncodeType.JSON)
 				{
 					string method = "/Network/DNS/Record/Region/create";
 					return APIHandler.Post (method, options, encoding);
 				}
 
+				/// <summary>
+				/// This subroutine is used to delete unassociated a region from the specified DNS Record
+				/// </summary>
 				public static string Delete (object options, EncodeType encoding = EncodeType.JSON)
 				{
 					string method = "/Network/DNS/Record/Region/delete";
 					return APIHandler.Post (method, options, encoding);
 				}
 
+				/// <summary>
+				/// This sub is used to update Regions associated with DNS Records.
+				/// </summary>
 				public static string Update (object options, EncodeType encoding = EncodeType.JSON)
 				{
 					string method = "/Network/DNS/Record/Region/update";
@@ -117,17 +159,26 @@ namespace APIMethods.Network
 
 		public static class Reverse
 		{
+			/// <summary>
+			/// Returns API documentation on a specific method in Network/DNS/Reverse/
+			/// </summary>
 			public static JObject MethodInfo (string method)
 			{
 				 return Documentation.docs["Network/DNS/Reverse"]["__methods"][method];
 			}
 
+			/// <summary>
+			/// This method is used to remove reverse DNS records.
+			/// </summary>
 			public static string Delete (object options, EncodeType encoding = EncodeType.JSON)
 			{
 				string method = "/Network/DNS/Reverse/delete";
 				return APIHandler.Post (method, options, encoding);
 			}
 
+			/// <summary>
+			/// Updates a ptr record.
+			/// </summary>
 			public static string Update (object options, EncodeType encoding = EncodeType.JSON)
 			{
 				string method = "/Network/DNS/Reverse/update";
@@ -138,23 +189,35 @@ namespace APIMethods.Network
 
 		public static class Zone
 		{
+			/// <summary>
+			/// Returns API documentation on a specific method in Network/DNS/Zone/
+			/// </summary>
 			public static JObject MethodInfo (string method)
 			{
 				 return Documentation.docs["Network/DNS/Zone"]["__methods"][method];
 			}
 
+			/// <summary>
+			/// Add a new DNS zone
+			/// </summary>
 			public static string Create (object options, EncodeType encoding = EncodeType.JSON)
 			{
 				string method = "/Network/DNS/Zone/create";
 				return APIHandler.Post (method, options, encoding);
 			}
 
+			/// <summary>
+			/// This method can be used to check if a DNS zone is properly delegated to our nameservers.
+			/// </summary>
 			public static string Delegation (object options, EncodeType encoding = EncodeType.JSON)
 			{
 				string method = "/Network/DNS/Zone/delegation";
 				return APIHandler.Post (method, options, encoding);
 			}
 
+			/// <summary>
+			/// Remove a DNS zone
+			/// </summary>
 			public static string Delete (object options, EncodeType encoding = EncodeType.JSON)
 			{
 				string method = "/Network/DNS/Zone/delete";
@@ -179,10 +242,13 @@ namespace APIMethods.Network
 				return APIHandler.Post (method, options, encoding);
 			}
 		}
-	}	// END OF DNS
+	}
 
 	public static class Firewall
 	{
+		/// <summary>
+		/// Returns API documentation on a specific method in Network/Firewall/
+		/// </summary>
 		public static JObject MethodInfo (string method)
 		{
 			 return Documentation.docs["Network/Firewall"]["__methods"][method];
@@ -214,6 +280,9 @@ namespace APIMethods.Network
 
 		public static class Ruleset
 		{
+			/// <summary>
+			/// Returns API documentation on a specific method in Network/Firewall/Ruleset/
+			/// </summary>
 			public static JObject MethodInfo (string method)
 			{
 				 return Documentation.docs["Network/Firewall/Ruleset"]["__methods"][method];
@@ -249,6 +318,9 @@ namespace APIMethods.Network
 
 	public static class IP
 	{
+		/// <summary>
+		/// Returns API documentation on a specific method in Network/IP/
+		/// </summary>
 		public static JObject MethodInfo (string method)
 		{
 			 return Documentation.docs["Network/IP"]["__methods"][method];
@@ -300,6 +372,9 @@ namespace APIMethods.Network
 
 	public static class LoadBalancer
 	{
+		/// <summary>
+		/// Returns API documentation on a specific method in Network/LoadBalancer/
+		/// </summary>
 		public static JObject MethodInfo (string method)
 		{
 			 return Documentation.docs["Network/LoadBalancer"]["__methods"][method];
@@ -380,6 +455,9 @@ namespace APIMethods.Network
 
 	public static class Pool
 	{
+		/// <summary>
+		/// Returns API documentation on a specific method in Network/Pool/
+		/// </summary>
 		public static JObject MethodInfo (string method)
 		{
 			 return Documentation.docs["Network/Pool"]["__methods"][method];
@@ -417,6 +495,9 @@ namespace APIMethods.Network
 
 	public static class Private
 	{
+		/// <summary>
+		/// Returns API documentation on a specific method in Network/Private/
+		/// </summary>
 		public static JObject MethodInfo (string method)
 		{
 			 return Documentation.docs["Network/Private"]["__methods"][method];
@@ -455,6 +536,9 @@ namespace APIMethods.Network
 
 	public static class Zone
 	{
+		/// <summary>
+		/// Returns API documentation on a specific method in Network/Zone/
+		/// </summary>
 		public static JObject MethodInfo (string method)
 		{
 			 return Documentation.docs["Network/Zone"]["__methods"][method];

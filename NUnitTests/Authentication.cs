@@ -11,9 +11,7 @@ namespace Tests
 	[TestFixture]
 	public class Authentication
 	{
-		/// <summary>
-		/// user,password variables used in test
-		/// </summary>
+		// Test variables
 		string _testUser;
 		string _testPassword;
 
@@ -21,7 +19,7 @@ namespace Tests
 		public void Init ()
 		{
 			/// <summary>
-			/// Data used to compare with test
+			/// Initializes variable data
 			/// </summary>
 			_testUser = "NUnitUser";
 			_testPassword = "NUnitPassword";

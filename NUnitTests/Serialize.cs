@@ -7,16 +7,22 @@ using Newtonsoft.Json;
 
 namespace Tests
 {
+	/// <summary>
+	/// Test ability to Serialize different object types into a JSON string.
+	/// </summary>
 	[TestFixture]
 	public class Serialize
 	{
-		//variables
+		//Variables
 		string ret;
 		string desiredOutput;
 		dynamic genRequest;
 		Dictionary<string, dynamic> de;
 		IPDetailsRequest ipDetails;
 
+		/// <summary>
+		/// Initializes test variables
+		/// </summary>
 		[SetUp]
 		public void Init()
 		{
@@ -24,6 +30,9 @@ namespace Tests
 			desiredOutput = "{\"params\":{\"uniq_id\":\"ABCD12\",\"ip\":\"12.34.56.78\"}}";
 		}
 
+		/// <summary>
+		/// Serializes a dictionary<key,value> set into JSON string.
+		/// </summary>
 		[Test]
 		public void SerializeDictionary ()
 		{
@@ -39,6 +48,9 @@ namespace Tests
 			StringAssert.AreEqualIgnoringCase (desiredOutput, ret);
 		}
 
+		/// <summary>
+		/// Serializes a class into a JSON string based on properties->values.
+		/// </summary>
 		[Test]
 		public void SerializeClass()
 		{
@@ -55,6 +67,9 @@ namespace Tests
 			StringAssert.AreEqualIgnoringCase (desiredOutput, ret);
 		}
 
+		/// <summary>
+		/// Serializes a generic/dynamically generated class into a JSON string based off internal dictionary.
+		/// </summary>
 		[Test]
 		public void SerializeGeneric()
 		{

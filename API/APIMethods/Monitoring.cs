@@ -90,6 +90,9 @@ namespace APIMethods.Monitoring
 
 	public static class Services
 	{
+		/// <summary>
+		/// Returns API documentation on a specific method in Monitoring/Services/
+		/// </summary>
 		public static JObject MethodInfo (string method)
 		{
 			 return Documentation.docs["Monitoring/Services"]["__methods"][method];

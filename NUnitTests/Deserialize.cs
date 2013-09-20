@@ -6,15 +6,21 @@ using StormOnDemandAPI;
 
 namespace Tests
 {
+	/// <summary>
+	/// Test ability to Deserialize JSON into different object types.
+	/// </summary>
 	[TestFixture]
 	public class Deserialize
 	{
-		// Variables
+		// Test variables
 		Hashtable hash;
 		string testData;
 		Dictionary<string, dynamic> de;
 		IPDetailsResponse ipde;
 
+		/// <summary>
+		/// Initializes variable data.
+		/// </summary>
 		[SetUp]
 		public void Init ()
 		{
@@ -26,6 +32,9 @@ namespace Tests
 				"\"id\":\"987654\"}";
 		}
 
+		/// <summary>
+		/// Deserializes a JSON string into a classes properties->values.
+		/// </summary>
 		[Test]
 		public void DeserializeClass ()
 		{
@@ -34,7 +43,7 @@ namespace Tests
 			// Deserializes JSON string data to properties,value in ResponseIPDetails object
 			ipde = Newtonsoft.Json.JsonConvert.DeserializeObject<IPDetailsResponse> (testData);
 
-			//Check if properties/values are serialized properly
+			//Check if properties/values are stored properly
 			StringAssert.AreEqualIgnoringCase (ipde.broadcast, "12.34.56.255");
 			StringAssert.AreEqualIgnoringCase (ipde.gateway, "12.34.254.1");
 			StringAssert.AreEqualIgnoringCase (ipde.ip, "12.34.56.78");
@@ -43,14 +52,17 @@ namespace Tests
 
 		}
 	
+		/// <summary>
+		/// Deserializes a JSON string into a Dictionary<key,value> set.
+		/// </summary>
 		[Test]
 		public void DeserializeDictionary ()
 		{
 			de = new Dictionary<string, dynamic> ();
-			// Deserialize test JSON string in a Dictionary<T,T> object
+			// Deserialize test JSON string into a Dictionary<T,T> object
 			de = Newtonsoft.Json.JsonConvert.DeserializeObject<Dictionary<string, dynamic>> (testData);
 
-			//Check if Dictionary keys,values are serialized properly
+			//Check if Dictionary keys,values are stored properly
 			foreach (KeyValuePair<string,dynamic> en in de) {
 				if (en.Key == "broadcast")
 					StringAssert.AreEqualIgnoringCase (en.Value, "12.34.56.255");
@@ -65,15 +77,18 @@ namespace Tests
 			}
 		}
 
+		/// <summary>
+		/// Deserializes a JSON string into a Hashtable<key,value> object.
+		/// </summary>
 		[Test]
 		public void DeserializeHash ()
 		{
 			hash = new Hashtable ();
 
-			// Deserialize test JSON string in a Hashtable object
+			// Deserialize test JSON string into Hashtable object
 			hash = Newtonsoft.Json.JsonConvert.DeserializeObject<Hashtable> (testData);
 
-			// Check if hashtable keys,values are serialized properly
+			// Check if hashtable keys,values are stored properly
 			foreach (DictionaryEntry en in hash) {
 				if (en.Key.ToString () == "broadcast")
 					StringAssert.AreEqualIgnoringCase (en.Value.ToString (), "12.34.56.255");

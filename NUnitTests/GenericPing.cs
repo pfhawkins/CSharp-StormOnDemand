@@ -6,11 +6,13 @@ using StormOnDemandAPI;
 
 namespace Tests
 {
-	//Generic ping request to api to test connection
+	/// <summary>
+	/// Generic ping to the storm api.
+	/// </summary>
 	[TestFixture]
 	public class GenericPing
 	{
-		// variables
+		// Test variables.
 		string _hostname;
 		Ping _pinger;
 		PingOptions _pingerOptions;
@@ -18,11 +20,13 @@ namespace Tests
 		Byte[] _buffer;
 		int _timeout;
 		PingReply _reply;
-		
+
+		/// <summary>
+		/// Initializes variable data.
+		/// </summary>
 		[SetUp]
 		public void Init()
 		{
-			// Setup some data
 			_hostname = "api.stormondemand.com";
 			_pinger = new Ping();
 			_pingerOptions = new PingOptions();
@@ -33,10 +37,12 @@ namespace Tests
 			_timeout = 120;
 		}
 
+		/// <summary>
+		/// Pings api.stormondemand.com to check route to API
+		/// </summary>
 		[Test]
 		public void TestConnection()
 		{
-			// Pings api.stormondemand.com to check route to API
 			_reply = _pinger.Send (_hostname, _timeout, _buffer, _pingerOptions);
 
 			Assert.AreNotEqual (_reply.Status, IPStatus.TimedOut);
