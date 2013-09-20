@@ -35,17 +35,17 @@ namespace StormOnDemandAPI
 	public static class Auth
 	{
 		/// <summary>
-		/// The API username.
+		/// Your API username.
 		/// </summary>
 		public static string username = string.Empty;
 
 		/// <summary>
-		/// The API password.
+		/// Your API password.
 		/// </summary>
 		public static string password = string.Empty;
 
 		/// <summary>
-		/// Returns the username and password as a ICredentials object for authentication in APIHandler
+		/// Returns the username and password as a ICredentials object for authentication in the APIHandler
 		/// </summary>
 		public static System.Net.ICredentials Credentials { get { return new System.Net.NetworkCredential (username, password); } }
 

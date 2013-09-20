@@ -31,20 +31,23 @@ namespace StormOnDemandAPI
 {
 	public class GenericRequest : DynamicObject
 	{
-		// The inner dictionary.
-		public Dictionary<string, dynamic> values
-        = new Dictionary<string, dynamic> ();
+		/// <summary>
+		/// The inner Dictionary of values
+		/// </summary>
+		public Dictionary<string, dynamic> values = new Dictionary<string, dynamic> ();
 
-		// This property returns the number of elements 
-		// in the dictionary. 
+		/// <summary>
+		/// Returns number of elements in the dictionary list.
+		/// </summary>
 		public int Count {
 			get {
 				return values.Count;
 			}
 		}
 
-		// If you try to get a value of a property  
-		// not defined in the class, this method is called. 
+		/// <summary>
+		/// Called if you try to get the value of a property undefined in the class
+		/// </summary>
 		public override bool TryGetMember (
         GetMemberBinder binder, out object result)
 		{
@@ -60,6 +63,10 @@ namespace StormOnDemandAPI
 
 		// If you try to set a value of a property that is 
 		// not defined in the class, this method is called. 
+
+		/// <summary>
+		/// Called if you attempt to set a value of a property undefined in the class
+		/// </summary>
 		public override bool TrySetMember (
         SetMemberBinder binder, object value)
 		{

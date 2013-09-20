@@ -33,10 +33,16 @@ using StormOnDemandAPI;
 
 namespace APIMethods
 {
+	/// <summary>
+	/// API Documentation built from automatically generated JSON output from API.
+	/// </summary>
 	public class Documentation
 	{
 		public static Dictionary<string, dynamic> docs;
 
+		/// <summary>
+		/// Generates a Dictionary key,value set of the JSON documentation.
+		/// </summary>
 		public static Dictionary<string, dynamic> PullAPIDocs ()
 		{
 			WebClient cli = new WebClient ();
@@ -47,11 +53,17 @@ namespace APIMethods
 			return docs = JsonConvert.DeserializeObject<Dictionary<string, dynamic>> (Regex.Replace (tmp, @"[\n]", " "));
 		}
 
+		/// <summary>
+		/// Used to pull method info from documentation via category/method.
+		/// </summary>
 		public static JObject MethodInfo (string category, string method)
 		{ 
 			return docs[category]["__methods"][method]; 
 		}
 
+		/// <summary>
+		/// Used to return specific parameters from the category/method such as __input, __output parameters.
+		/// </summary>
 		public static JValue MethodInfo (string category, string method, string parameters)
 		{ 
 			return docs[category]["__methods"][method][parameters]; 

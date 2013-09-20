@@ -27,12 +27,35 @@ using System;
 
 namespace StormOnDemandAPI
 {
+	/// <summary>
+	/// Example response to catch and store the returned JSON from APIDetails method.
+	/// Stores each JSON key value pair into object properties
+	/// </summary>
 	public class IPDetailsResponse
 	{
+		/// <summary>
+		/// Gets or sets the broadcast IP Address
+		/// </summary>
 		public string broadcast { get; set; }
+
+		/// <summary>
+		/// Gets or sets the gateway IP Address
+		/// </summary>
 		public string gateway{ get; set; }
+
+		/// <summary>
+		/// Gets or sets the IP Address
+		/// </summary>
 		public string ip { get; set; }
+
+		/// <summary>
+		/// Gets or sets the netmask IP Address
+		/// </summary>
 		public string netmask { get; set; }
+
+		/// <summary>
+		/// Gets or sets the id
+		/// </summary>
 		public string id { get; set; }
 	}
 }

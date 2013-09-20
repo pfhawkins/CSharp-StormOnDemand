@@ -27,9 +27,19 @@ using System;
 
 namespace StormOnDemandAPI
 {
+	/// <summary>
+	/// IP details API request.
+	/// </summary>
 	public class IPDetailsRequest
 	{
+		/// <summary>
+		/// Uniq_id of the instance.
+		/// </summary>
 		public string uniq_id { get; set; }
+
+		/// <summary>
+		/// Specific IP you want details for.
+		/// </summary>
 		public string ip { get; set; }
 	}
 }

@@ -77,9 +77,9 @@ namespace StormOnDemandAPI
 			WebResponse _webResponse;
 
 			T _response = default( T );
-			string _url;
+
 			// Build API post URI
-			_url = string.Format ("{0}{1}{2}",APIHandler.Environment, APIHandler.Version, method);
+			string _url = string.Format ("{0}{1}{2}",APIHandler.Environment, APIHandler.Version, method);
 
 			if (encoding == EncodeType.XML && !_url.EndsWith (".xml"))
 				_url += ".xml";
@@ -167,6 +167,7 @@ namespace StormOnDemandAPI
 				return "Unrecognized encoding type";
 			}
 		}
+
 		/// <summary>
 		/// Reads the element value.
 		/// </summary>

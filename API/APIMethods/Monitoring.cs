@@ -29,19 +29,32 @@ using Newtonsoft.Json.Linq;
 
 namespace APIMethods.Monitoring
 {
+	/// <summary>
+	/// Monitoring/Bandwidth API Methods
+	/// </summary>
 	public static class Bandwidth
 	{
+		/// <summary>
+		/// Returns API documentation on a specific method in Monitoring/Bandwidth/
+		/// </summary>
 		public static JObject MethodInfo (string method)
 		{
 			 return Documentation.docs["Monitoring/Bandwidth"]["__methods"][method];
 		}
 
+		/// <summary>
+		/// Get a bandwidth usage graph for a server.  The image is returned as a base64
+		/// encoded blob.
+		/// </summary>
 		public static string Graph (object options, EncodeType encoding = EncodeType.JSON)
 		{
 			string method = "/Monitoring/Bandwidth/graph";
 			return APIHandler.Post (method, options, encoding);
 		}
 
+		/// <summary>
+		/// Get bandwidth usage stats for a server.
+		/// </summary>
 		public static string Stats (object options, EncodeType encoding = EncodeType.JSON)
 		{
 			string method = "/Monitoring/Bandwidth/stats";
@@ -51,11 +64,17 @@ namespace APIMethods.Monitoring
 
 	public static class Load
 	{
+		/// <summary>
+		/// Returns API documentation on a specific method in Monitoring/Load/
+		/// </summary>
 		public static JObject MethodInfo (string method)
 		{
 			 return Documentation.docs["Monitoring/Load"]["__methods"][method];
 		}
 
+		/// <summary>
+		/// Get a load graph for a server as a base64 encoded blob.
+		/// </summary>
 		public static string Graph (object options, EncodeType encoding = EncodeType.JSON)
 		{
 			string method = "/Monitoring/Load/graph";

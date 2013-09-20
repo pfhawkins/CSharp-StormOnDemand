@@ -30,15 +30,51 @@ namespace StormOnDemandAPI
 {
 	public class StormServerCreateRequest
 	{
+		/// <summary>
+		/// Enable backups on the server, uses APIMethods.Storm enum helper.
+		/// </summary>
 		public BackupEnabled backup_enabled { get; set; }
+
+		/// <summary>
+		/// Sets the config_id used when deploying.
+		/// Config ID's are viewable with APIMethods.Storm.Config.list
+		/// </summary>
 		public int config_id { get; set; }
+
+		/// <summary>
+		/// Sets the Hostname for the instance.
+		/// </summary>
 		public string domain { get; set; }
+
+		/// <summary>
+		/// Sets the amount of IP's allocated to the instance.
+		/// </summary>
 		public int ip_count { get; set; }
+
+		/// <summary>
+		/// Sets the password for the instance.
+		/// </summary>
 		public string password { get; set; }
+
+		/// <summary>
+		/// Sets what LiquidWeb image to use, viewable with APIMethods.Storm.Template.list.
+		/// </summary>
 		public string template { get; set; }
+
+		/// <summary>
+		/// Sets the zone for the deploy. Lansing XEN, Lansing KVM or phoenix KVM
+		/// Defaults to Lansing KVM
+		/// </summary>
 		public int zone { get; set; }
+
+		/// <summary>
+		/// Add a id_rsa.pub here to automatically deploy it on the instance during creation.
+		/// </summary>
 		public string public_ssh_key { get; set; }
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="StormOnDemandAPI.StormServerCreateRequest"/> class.
+		/// </summary>
 		public StormServerCreateRequest ()
 		{
 			backup_enabled = 0;
