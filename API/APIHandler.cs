@@ -37,6 +37,9 @@ using System.Numerics;
 
 namespace StormOnDemandAPI
 {
+	/// <summary>
+	/// API Encoding types
+	/// </summary>
 	public enum EncodeType
 	{
 		JSON,
@@ -44,39 +47,30 @@ namespace StormOnDemandAPI
 		YAML }
 	;
 
+	/// <summary>
+	/// API handler handles the post and return of data to the API
+	/// </summary>
 	public class APIHandler
 	{
 		/// <summary>
-		/// The version.
+		/// The API Version to to use ie: v1/bleed, defaults to v1
 		/// </summary>
 		public static string Version = "v1";
 
 		/// <summary>
-		/// The environment.
+		/// The environment/base URI string.
 		/// </summary>
 		public static string Environment = "https://api.stormondemand.com/";
 
 		/// <summary>
-		/// Post the specified decode, method, parameters and encoding.
+		/// Posts/returns the specified decode based on object type, method, parameters and encoding.
 		/// </summary>
-		/// <param name='decode'>
-		/// Decode.
-		/// </param>
-		/// <param name='method'>
-		/// Method.
-		/// </param>
-		/// <param name='parameters'>
-		/// Parameters.
-		/// </param>
-		/// <param name='encoding'>
-		/// Encoding.
-		/// </param>
-		/// <typeparam name='T'>
-		/// The 1st type parameter.
-		/// </typeparam>
+		/// <returns>
+		/// The JSON response string returned from the API.
+		/// </returns>
 		private static T Post<T> (Func<string, T> decode, string method, string parameters, EncodeType encoding = EncodeType.JSON)
 		{
-			// Use this to ignore IDE cert warnings
+			// Uncomment to ignore cert warnings
 			ServicePointManager.ServerCertificateValidationCallback = ( se, cert, chain, sslerror ) => { return true; };
 
 			WebRequest _webRequest;
@@ -84,7 +78,7 @@ namespace StormOnDemandAPI
 
 			T _response = default( T );
 			string _url;
-			// Builds post url to api
+			// Build API post URI
 			_url = string.Format ("{0}{1}{2}",APIHandler.Environment, APIHandler.Version, method);
 
 			if (encoding == EncodeType.XML && !_url.EndsWith (".xml"))
@@ -94,8 +88,10 @@ namespace StormOnDemandAPI
 
 			_webRequest.ContentType = "application/" + encoding.ToString ().ToLower ();
 			_webRequest.Method = "POST";
+
 			// Set API auth information
 			_webRequest.Credentials = Auth.Credentials;
+
 			byte[] buffer = Encoding.GetEncoding ("UTF-8").GetBytes (parameters != null ? parameters : string.Empty);
 
 			try {
@@ -115,7 +111,7 @@ namespace StormOnDemandAPI
 					}
 				}
 			} catch (WebException ex) {
-				//Catch Web errors
+				//Catch a couple web errors, or display generic eror by error code
 				if (ex.Status == WebExceptionStatus.ProtocolError && ex.Response != null) {
 					var resp = (HttpWebResponse)ex.Response;
 					if (resp.StatusCode == HttpStatusCode.NotFound) {
@@ -132,17 +128,11 @@ namespace StormOnDemandAPI
 		}
 
 		/// <summary>
-		/// Post the specified method, parameters and encoding.
+		/// Posts the specified method, Serializes the object into json in parameters and sets encoding type.
 		/// </summary>
-		/// <param name='method'>
-		/// Method.
-		/// </param>
-		/// <param name='parameters'>
-		/// Parameters.
-		/// </param>
-		/// <param name='encoding'>
-		/// Encoding.
-		/// </param>
+		/// <returns>
+		/// The JSON response string returned from the API.
+		/// </returns>
 		public static string Post (string method, object parameters , EncodeType encoding = EncodeType.JSON)
 		{
 			string pars = parameters != null ? JsonConvert.SerializeObject (parameters) : string.Empty;
@@ -162,6 +152,7 @@ namespace StormOnDemandAPI
 					Func<string, string> decode = responseStr =>
 					{
 						//Clean the XML sheet of any invalid elements as per the ISO standard
+						// rewrites zone elements such as <10> to <zone_10>
 						return Regex.Replace (responseStr, @"<(/?)([0-9]*)[$>]", String.Format ("<{0}zone_{1}>", "$1", "$2"));
 					};
 
@@ -182,12 +173,6 @@ namespace StormOnDemandAPI
 		/// <returns>
 		/// The element value.
 		/// </returns>
-		/// <param name='nav'>
-		/// Nav.
-		/// </param>
-		/// <param name='elementName'>
-		/// Element name.
-		/// </param>
 		public static string ReadElementValue (XPathNavigator nav, string elementName)
 		{
 			XPathNodeIterator element = nav.Select (elementName);
