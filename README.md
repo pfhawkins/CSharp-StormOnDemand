@@ -4,7 +4,7 @@ StormOnDemandAPI
 C# Library to assist with using the Storm On Demand API.
 
 Uses Newtonsoft's JSON library, Modified for Storm API
-Compatible with .Net 4.0 and above on Linux and Windows
+Compatible with .Net 3.5 on Linux and .Net 3.0, 3.5, 4, 4.5 on Windows
 
 Can deserialize/serialize Classes, Hashtables, Dictionarys, Objects, Dynamic Objects to and from JSON or XML format.
 
