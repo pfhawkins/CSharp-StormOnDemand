@@ -224,18 +224,27 @@ namespace APIMethods.Network
 				return APIHandler.Post (method, options, encoding);
 			}
 
+			/// <summary>
+			/// Retrieve details on a particular zone served by our DNS servers.
+			/// </summary>
 			public static string Details (object options, EncodeType encoding = EncodeType.JSON)
 			{
 				string method = "/Network/DNS/Zone/details";
 				return APIHandler.Post (method, options, encoding);
 			}
 
+			/// <summary>
+			/// Retrieve a list of zones that are served by our DNS servers for your account.
+			/// </summary>
 			public static string List (object options, EncodeType encoding = EncodeType.JSON)
 			{
 				string method = "/Network/DNS/Zone/list";
 				return APIHandler.Post (method, options, encoding);
 			}
 
+			/// <summary>
+			/// Update the zone features.
+			/// </summary>
 			public static string Update (object options, EncodeType encoding = EncodeType.JSON)
 			{
 				string method = "/Network/DNS/Zone/update";
@@ -254,24 +263,42 @@ namespace APIMethods.Network
 			 return Documentation.docs["Network/Firewall"]["__methods"][method];
 		}
 
+		/// <summary>
+		/// Get details about the current firewall settings for a particular server.  If
+		/// no firewall is applied, a type of 'none' is returned.  Otherwise, you get the
+		/// various firewall types: 'basic', 'advanced', or 'saved', along with relevant
+		/// details that apply to that firewall type.
+		/// </summary>
 		public static string Details (object options, EncodeType encoding = EncodeType.JSON)
 		{
 			string method = "/Network/Firewall/details";
 			return APIHandler.Post (method, options, encoding);
 		}
 
+		/// <summary>
+		/// Returns a list of options that the basic firewall accepts.
+		/// </summary>
 		public static string GetBasicOptions (object options, EncodeType encoding = EncodeType.JSON)
 		{
 			string method = "/Network/Firewall/getBasicOptions";
 			return APIHandler.Post (method, options, encoding);
 		}
 
+		/// <summary>
+		/// Returns the rules for the given server, regardless of type.
+		/// The rules are returned under the rules field, which is an array reference.
+		/// </summary>
 		public static string Rules (object options, EncodeType encoding = EncodeType.JSON)
 		{
 			string method = "/Network/Firewall/rules";
 			return APIHandler.Post (method, options, encoding);
 		}
 
+		/// <summary>
+		/// Updates the firewall setting for a given server.  The argument should mirror
+		/// the data structures returned by details, with the addition of the
+		/// uniq_id field.
+		/// </summary>
 		public static string Update (object options, EncodeType encoding = EncodeType.JSON)
 		{
 			string method = "/Network/Firewall/update";
@@ -288,24 +315,40 @@ namespace APIMethods.Network
 				 return Documentation.docs["Network/Firewall/Ruleset"]["__methods"][method];
 			}
 
+			/// <summary>
+			/// Saves the ruleset that the given server is using under the given name.
+			/// The server will be set to a firewall type of 'saved', with this ruleset
+			/// as its ruleset.
+			/// </summary>
 			public static string Create (object options, EncodeType encoding = EncodeType.JSON)
 			{
 				string method = "/Network/Firewall/Ruleset/create";
 				return APIHandler.Post (method, options, encoding);
 			}
 
+			/// <summary>
+			/// Returns the rules and valid destinations ips for the given ruleset.
+			/// </summary>
 			public static string Details (object options, EncodeType encoding = EncodeType.JSON)
 			{
 				string method = "/Network/Firewall/Ruleset/details";
 				return APIHandler.Post (method, options, encoding);
 			}
 
+			/// <summary>
+			/// Returns an array reference of rulesets that have been saved for use
+			/// by this account.
+			/// </summary>
 			public static string List (object options, EncodeType encoding = EncodeType.JSON)
 			{
 				string method = "/Network/Firewall/Ruleset/list";
 				return APIHandler.Post (method, options, encoding);
 			}
 
+			/// <summary>
+			/// Updates the saved ruleset with the given ruleset.  Returns a list of affected
+			/// servers.
+			/// </summary>
 			public static string Update (object options, EncodeType encoding = EncodeType.JSON)
 			{
 				string method = "/Network/Firewall/Ruleset/update";
@@ -326,42 +369,73 @@ namespace APIMethods.Network
 			 return Documentation.docs["Network/IP"]["__methods"][method];
 		}
 
+		/// <summary>
+		/// Add a number of IPs to an existing server. If the 'reboot' flag is passed in,
+		/// the server will be stopped, have the new IP addresses configured, and then be
+		/// rebooted.
+		/// </summary>
 		public static string Add (object options, EncodeType encoding = EncodeType.JSON)
 		{
 			string method = "/Network/IP/add";
 			return APIHandler.Post (method, options, encoding);
 		}
 
+		/// <summary>
+		/// Gets information about a particular IP.
+		/// </summary>
 		public static string Details (object options, EncodeType encoding = EncodeType.JSON)
 		{
 			string method = "/Network/IP/details";
 			return APIHandler.Post (method, options, encoding);
 		}
 
+		/// <summary>
+		/// Gets a paginationed list of all IPs for a particular server.  More details
+		/// about the returned data can be found under network/ip/details
+		/// </summary>
 		public static string List (object options, EncodeType encoding = EncodeType.JSON)
 		{
 			string method = "/Network/IP/list";
 			return APIHandler.Post (method, options, encoding);
 		}
 
+		/// <summary>
+		/// Gets a list of public network assignments for all subaccounts for a particular
+		/// account, optionally for a specific zone only.  With the include_pools flag,
+		/// also includes IPs assigned to IP pools.
+		/// </summary>
 		public static string ListAccntPublic (object options, EncodeType encoding = EncodeType.JSON)
 		{
 			string method = "/Network/IP/listAccntPublic";
 			return APIHandler.Post (method, options, encoding);
 		}
 
+		/// <summary>
+		/// Gets a paginated list of all public IPs for a particular server.  More details
+		/// about the returned data can be found under network/ip/details
+		/// </summary>
 		public static string ListPublic (object options, EncodeType encoding = EncodeType.JSON)
 		{
 			string method = "/Network/IP/listPublic";
 			return APIHandler.Post (method, options, encoding);
 		}
 
+		/// <summary>
+		/// Remove a specific IP from a server. If the 'reboot' flag is passed in,
+		/// the server will be stopped, have the old IP addresses removed, and then be
+		/// rebooted.
+		/// </summary>
 		public static string Remove (object options, EncodeType encoding = EncodeType.JSON)
 		{
 			string method = "/Network/IP/remove";
 			return APIHandler.Post (method, options, encoding);
 		}
 
+		/// <summary>
+		/// Request additional IPs for a server.  Many server types (traditional dedicated
+		/// for example) require manual intervention to add IPs.  This method creates a
+		/// ticket, requesting that the given number of IPs be added.
+		/// </summary>
 		public static string Request (object options, EncodeType encoding = EncodeType.JSON)
 		{
 			string method = "/Network/IP/request";
