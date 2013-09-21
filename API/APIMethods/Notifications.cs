@@ -31,25 +31,50 @@ namespace APIMethods
 {
 	public static class Notifications
 	{
+		/// <summary>
+		/// Returns API documentation on a specific method in Notifications/
+		/// </summary>
 		public static JObject MethodInfo (string method)
 		{
 			 return Documentation.docs["Notifications"]["__methods"][method];
 		}
+
+		/// <summary>
+		/// Get a list of all notifications for an account or server.  More information
+		/// about the data structure can be found in the storm/alerts/details method.
+		/// </summary>
 		public static string All (object options, EncodeType encoding = EncodeType.JSON)
 		{
 			string method = "/Notifications/all";
 			return APIHandler.Post (method, options, encoding);
 		}
+
+		/// <summary>
+		/// Get a list of unresolved notifications for an account or server.  More
+		/// information about the data structure can be found in the storm/alerts/details
+		/// method.
+		/// </summary>
 		public static string Current (object options, EncodeType encoding = EncodeType.JSON)
 		{
 			string method = "/Notifications/current";
 			return APIHandler.Post (method, options, encoding);
 		}
+
+		/// <summary>
+		/// Gets information about a specific notification, including a history of all
+		/// the alerts related to that notification.  You can limit the number of historical
+		/// alerts by specifying a 'limit'.
+		/// </summary>
 		public static string Details (object options, EncodeType encoding = EncodeType.JSON)
 		{
 			string method = "/Notifications/details";
 			return APIHandler.Post (method, options, encoding);
 		}
+
+		/// <summary>
+		/// Resolve an existing open notification.  It will be marked as 'resolved' and no
+		/// longer be returned by the 'current' method.
+		/// </summary>
 		public static string Resolve (object options, EncodeType encoding = EncodeType.JSON)
 		{
 			string method = "/Notifications/resolve";

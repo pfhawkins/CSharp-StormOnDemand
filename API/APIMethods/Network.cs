@@ -453,72 +453,113 @@ namespace APIMethods.Network
 		{
 			 return Documentation.docs["Network/LoadBalancer"]["__methods"][method];
 		}
+
+		/// <summary>
+		/// Adds a single node to an existing loadbalancer.
+		/// </summary>
 		public static string AddNode (object options, EncodeType encoding = EncodeType.JSON)
 		{
 			string method = "/Network/LoadBalancer/addNode";
 			return APIHandler.Post (method, options, encoding);
 		}
 
+		/// <summary>
+		/// Adds a service to an existing loadbalancer.
+		/// </summary>
 		public static string AddService (object options, EncodeType encoding = EncodeType.JSON)
 		{
 			string method = "/Network/LoadBalancer/addService";
 			return APIHandler.Post (method, options, encoding);
 		}
 
+		/// <summary>
+		/// Find out if a loadbalancer name is already in use on an account.  Allows for
+		/// preventing DuplicateRecord exceptions when creating new load balancers.
+		/// </summary>
 		public static string Available (object options, EncodeType encoding = EncodeType.JSON)
 		{
 			string method = "/Network/LoadBalancer/available";
 			return APIHandler.Post (method, options, encoding);
 		}
 
+
+		/// <summary>
+		/// Create a new LoadBalancer.
+		/// </summary>
 		public static string Create (object options, EncodeType encoding = EncodeType.JSON)
 		{
 			string method = "/Network/LoadBalancer/create";
 			return APIHandler.Post (method, options, encoding);
 		}
 
+		/// <summary>
+		/// Delete a LoadBalancer.
+		/// </summary>
 		public static string Delete (object options, EncodeType encoding = EncodeType.JSON)
 		{
 			string method = "/Network/LoadBalancer/delete";
 			return APIHandler.Post (method, options, encoding);
 		}
 
+		/// <summary>
+		/// Get information about a specific loadbalancer.
+		/// </summary>
 		public static string Details (object options, EncodeType encoding = EncodeType.JSON)
 		{
 			string method = "/Network/LoadBalancer/details";
 			return APIHandler.Post (method, options, encoding);
 		}
 
+		/// <summary>
+		/// Gets a list of all loadbalancers on an account.
+		/// </summary>
 		public static string List (object options, EncodeType encoding = EncodeType.JSON)
 		{
 			string method = "/Network/LoadBalancer/list";
 			return APIHandler.Post (method, options, encoding);
 		}
 
+		/// <summary>
+		/// Gets a list of all possible Loadbalancer Nodes on an account, regardless of
+		/// whether or not they are currently loadbalanced.
+		/// </summary>
 		public static string PossibleNodes (object options, EncodeType encoding = EncodeType.JSON)
 		{
 			string method = "/Network/LoadBalancer/possibleNodes";
 			return APIHandler.Post (method, options, encoding);
 		}
 
+		/// <summary>
+		/// Removes a single node from an existing loadbalancer.
+		/// </summary>
 		public static string RemoveNode (object options, EncodeType encoding = EncodeType.JSON)
 		{
 			string method = "/Network/LoadBalancer/removeNode";
 			return APIHandler.Post (method, options, encoding);
 		}
 
+
+		/// <summary>
+		/// Removes a single service from an existing loadbalancer.
+		/// </summary>
 		public static string RemoveService (object options, EncodeType encoding = EncodeType.JSON)
 		{
 			string method = "/Network/LoadBalancer/removeService";
 			return APIHandler.Post (method, options, encoding);
 		}
 
+		/// <summary>
+		/// Get a list of available strategies, with extra descriptive information.
+		/// </summary>
 		public static string Strategies (object options, EncodeType encoding = EncodeType.JSON)
 		{
 			string method = "/Network/LoadBalancer/strategies";
 			return APIHandler.Post (method, options, encoding);
 		}
 
+		/// <summary>
+		/// Update an existing loadbalancer.
+		/// </summary>
 		public static string Update (object options, EncodeType encoding = EncodeType.JSON)
 		{
 			string method = "/Network/LoadBalancer/update";
@@ -536,30 +577,46 @@ namespace APIMethods.Network
 		{
 			 return Documentation.docs["Network/Pool"]["__methods"][method];
 		}
+
+		/// <summary>
+		/// Create a new IP Pool
+		/// </summary>
 		public static string Create (object options, EncodeType encoding = EncodeType.JSON)
 		{
 			string method = "/Network/Pool/create";
 			return APIHandler.Post (method, options, encoding);
 		}
 
+		/// <summary>
+		/// Deletes the given pool, and all the assignments that are only in the pool.
+		/// </summary>
 		public static string Delete (object options, EncodeType encoding = EncodeType.JSON)
 		{
 			string method = "/Network/Pool/delete";
 			return APIHandler.Post (method, options, encoding);
 		}
 
+		/// <summary>
+		/// Returns the details of a given IP pool.
+		/// </summary>
 		public static string Details (object options, EncodeType encoding = EncodeType.JSON)
 		{
 			string method = "/Network/Pool/details";
 			return APIHandler.Post (method, options, encoding);
 		}
 
+		/// <summary>
+		/// Gets a list of network assignments for a particular IP Pool.
+		/// </summary>
 		public static string List (object options, EncodeType encoding = EncodeType.JSON)
 		{
 			string method = "/Network/Pool/list";
 			return APIHandler.Post (method, options, encoding);
 		}
 
+		/// <summary>
+		/// Update an existing IP Pool
+		/// </summary>
 		public static string Update (object options, EncodeType encoding = EncodeType.JSON)
 		{
 			string method = "/Network/Pool/update";
@@ -577,30 +634,51 @@ namespace APIMethods.Network
 			 return Documentation.docs["Network/Private"]["__methods"][method];
 		}
 
+		/// <summary>
+		/// Attach a given server to your private network.
+		/// Note: This will automatically create the private network, if it is not already
+		/// created.
+		/// </summary>
 		public static string Attach (object options, EncodeType encoding = EncodeType.JSON)
 		{
 			string method = "/Network/Private/attach";
 			return APIHandler.Post (method, options, encoding);
 		}
 
+		/// <summary>
+		/// Detaches a given server to your private network.
+		/// Note: if this is the last server on your private network, the private vlan will
+		/// be destroyed, so you will not be guaranteed the same private vlan id, should you
+		/// re-enable private networking later.
+		/// </summary>
 		public static string Detach (object options, EncodeType encoding = EncodeType.JSON)
 		{
 			string method = "/Network/Private/detach";
 			return APIHandler.Post (method, options, encoding);
 		}
 
+		/// <summary>
+		/// Gets all of the servers attached to your private network, which zones they are in,
+		/// and what IPs they are assigned.
+		/// </summary>
 		public static string Get (object options, EncodeType encoding = EncodeType.JSON)
 		{
 			string method = "/Network/Private/get";
 			return APIHandler.Post (method, options, encoding);
 		}
 
+		/// <summary>
+		/// Gets the current private IP for a particular server, if it has one.
+		/// </summary>
 		public static string GetIP (object options, EncodeType encoding = EncodeType.JSON)
 		{
 			string method = "/Network/Private/getIP";
 			return APIHandler.Post (method, options, encoding);
 		}
 
+		/// <summary>
+		/// Determine whether a given server is currently attached to your private network.
+		/// </summary>
 		public static string IsAttached (object options, EncodeType encoding = EncodeType.JSON)
 		{
 			string method = "/Network/Private/isAttached";
@@ -618,18 +696,27 @@ namespace APIMethods.Network
 			 return Documentation.docs["Network/Zone"]["__methods"][method];
 		}
 
+		/// <summary>
+		/// Returns details of a given network zone by its name or id field.
+		/// </summary>
 		public static string Details (object options, EncodeType encoding = EncodeType.JSON)
 		{
 			string method = "/Network/Zone/details";
 			return APIHandler.Post (method, options, encoding);
 		}
 
+		/// <summary>
+		/// Returns a list of zones.
+		/// </summary>
 		public static string List (object options, EncodeType encoding = EncodeType.JSON)
 		{
 			string method = "/Network/Zone/list";
 			return APIHandler.Post (method, options, encoding);
 		}
 
+		/// <summary>
+		/// Sets the default zone for an account.
+		/// </summary>
 		public static string SetDefault (object options, EncodeType encoding = EncodeType.JSON)
 		{
 			string method = "/Network/Zone/setDefault";

@@ -128,7 +128,7 @@ namespace StormOnDemandAPI
 		}
 
 		/// <summary>
-		/// Posts the specified method, Serializes the object into json in parameters and sets encoding type.
+		/// Posts the specified method, Serializes the parameters object into json and sets encoding type.
 		/// </summary>
 		/// <returns>
 		/// The JSON response string returned from the API.
