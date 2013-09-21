@@ -61,6 +61,9 @@ namespace StormOnDemandAPI
 			return values.TryGetValue (name, out result);
 		}
 
+		// If you try to set a value of a property that is 
+		// not defined in the class, this method is called. 
+
 		/// <summary>
 		/// Called if you attempt to set a value of a property undefined in the class
 		/// </summary>
