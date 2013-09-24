@@ -1,5 +1,5 @@
 #region License
-// Copyright (c) 2013 Michael Upton
+// Copyright (c) 2013 mupton@liquidweb.com
 //
 // Permission is hereby granted, free of charge, to any person
 // obtaining a copy of this software and associated documentation
@@ -32,6 +32,9 @@ namespace APIMethods
 {
 	public static class Server
 	{
+		/// <summary>
+		/// Returns API documentation on a specific method in Server/
+		/// </summary>
 		public static JObject MethodInfo (string method)
 		{
 			 return Documentation.docs["Server"]["__methods"][method];
@@ -102,6 +105,9 @@ namespace APIMethods
 		{
 			public static class Domain
 			{
+				/// <summary>
+				/// Returns API documentation on a specific method in Server/VirtualDomain/
+				/// </summary>
 				public static JObject MethodInfo (string method)
 				{
 					 return Documentation.docs["Server/VirtualDomain"]["__methods"][method];
