@@ -33,17 +33,28 @@ namespace APIMethods
 	{
 		public static class Info
 		{
+			/// <summary>
+			/// Returns API documentation on a specific method in Utilities/Info
+			/// </summary>
 			public static JObject MethodInfo (string method)
 			{
 				 return Documentation.docs["Utilities/Info"]["__methods"][method];
 			}
 
+			/// <summary>
+			/// This method can be used as a basic check to see if communication with the api
+			/// is possible.
+			/// </summary>
 			public static string Ping ( EncodeType encoding = EncodeType.JSON)
 			{
 				object options = string.Empty;
 				string method = "/Utilities/Info/ping";
 				return APIHandler.Post (method, options, encoding);
 			}
+
+			/// <summary>
+			/// Returns the version of the of the api your are using.
+			/// </summary>
 			public static string Version ( EncodeType encoding = EncodeType.JSON)
 			{
 				object options = string.Empty;

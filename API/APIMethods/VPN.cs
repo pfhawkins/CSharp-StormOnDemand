@@ -31,26 +31,45 @@ namespace APIMethods
 {
 	public static class VPN
 	{
+		/// <summary>
+		/// Returns API documentation on a specific method in VPN/
+		/// </summary>
 		public static JObject MethodInfo (string method)
 		{
 			 return APIMethods.Documentation.docs["VPN"]["__methods"][method];
 		}
 
+		/// <summary>
+		/// create a new VPN service.
+		/// </summary>
 		public static string Create (object options, EncodeType encoding = EncodeType.JSON)
 		{
 			string method = "/VPN/create";
 			return APIHandler.Post (method, options, encoding);
 		}
+
+		/// <summary>
+		/// Get information about VPN access for this account.
+		/// </summary>
 		public static string Details (object options, EncodeType encoding = EncodeType.JSON)
 		{
 			string method = "/VPN/details";
 			return APIHandler.Post (method, options, encoding);
 		}
+
+		/// <summary>
+		/// Lists the authorized VPN users for a given accnt.
+		/// </summary>
 		public static string List (object options, EncodeType encoding = EncodeType.JSON)
 		{
 			string method = "/VPN/list";
 			return APIHandler.Post (method, options, encoding);
 		}
+
+
+		/// <summary>
+		/// Update the features of a VPN service.
+		/// </summary>
 		public static string Update (object options, EncodeType encoding = EncodeType.JSON)
 		{
 			string method = "/VPN/update";
