@@ -73,7 +73,7 @@ namespace StormOnDemandAPI
 		public string public_ssh_key { get; set; }
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="StormOnDemandAPI.StormServerCreateRequest"/> class.
+		/// Sets up default properties
 		/// </summary>
 		public StormServerCreateRequest ()
 		{
