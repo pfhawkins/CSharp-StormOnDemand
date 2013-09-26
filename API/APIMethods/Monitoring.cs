@@ -46,6 +46,13 @@ namespace APIMethods.Monitoring
 		/// Get a bandwidth usage graph for a server.  The image is returned as a base64
 		/// encoded blob.
 		/// </summary>
+		/// 
+		/// <param name="uniq_id" : required>
+		/// Uniq_id of instance
+		/// </param>
+		/// <param name="frequency" : optional>
+		/// Duration of the graph. Options available are 'daily', 'weekly', 'monthly', 'yearly'
+		/// </param>
 		public static string Graph (object options, EncodeType encoding = EncodeType.JSON)
 		{
 			string method = "/Monitoring/Bandwidth/graph";
