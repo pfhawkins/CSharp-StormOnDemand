@@ -47,10 +47,6 @@ namespace APIMethods.Billing
 		/// list method, additional details about the specific lineitems are included
 		/// in this method.
 		/// </summary>
-		/// 
-		/// <param name="id" :Required>
-		/// Billing invoice ID
-		/// </param>
 		public static string Details (object options, EncodeType encoding = EncodeType.JSON)
 		{
 			string method = "/Billing/Invoice/details";
@@ -98,10 +94,6 @@ namespace APIMethods.Billing
 		/// for credit card accounts.  A forbidden exception will be thrown if used with
 		/// a check account.
 		/// </summary>
-		/// 
-		/// <param name="amount" :required>
-		/// A positive monetary value such as  $.05, 0.05, or 5.00
-		/// </param>
 		public static string Make (object options, EncodeType encoding = EncodeType.JSON)
 		{
 			string method = "/Billing/Payment/make";

@@ -46,13 +46,6 @@ namespace APIMethods.Monitoring
 		/// Get a bandwidth usage graph for a server.  The image is returned as a base64
 		/// encoded blob.
 		/// </summary>
-		/// 
-		/// <param name="uniq_id" : required>
-		/// Uniq_id of instance
-		/// </param>
-		/// <param name="frequency" : optional>
-		/// Duration of the graph. Options available are 'daily', 'weekly', 'monthly', 'yearly'
-		/// </param>
 		public static string Graph (object options, EncodeType encoding = EncodeType.JSON)
 		{
 			string method = "/Monitoring/Bandwidth/graph";
@@ -88,6 +81,11 @@ namespace APIMethods.Monitoring
 			return APIHandler.Post (method, options, encoding);
 		}
 
+		/// <summary>
+		/// Get load stats for a server.  Memory is returned in units of MB, whereas disk usage
+		/// is in terms of GB.  Values can be returned as 'N/A' if there was no data collected
+		/// or the item in question is not something on the server.
+		/// </summary>
 		public static string Stats (object options, EncodeType encoding = EncodeType.JSON)
 		{
 			string method = "/Monitoring/Load/stats";
@@ -105,24 +103,36 @@ namespace APIMethods.Monitoring
 			 return Documentation.docs["Monitoring/Services"]["__methods"][method];
 		}
 
+		/// <summary>
+		/// Get the current monitoring settings for a server.
+		/// </summary>
 		public static string Get (object options, EncodeType encoding = EncodeType.JSON)
 		{
 			string method = "/Monitoring/Services/get";
 			return APIHandler.Post (method, options, encoding);
 		}
 
+		/// <summary>
+		/// Returns a list of IPs that our monitoring system runs from.
+		/// </summary>
 		public static string MonitoringIPs (object options, EncodeType encoding = EncodeType.JSON)
 		{
 			string method = "/Monitoring/Services/monitoringIps";
 			return APIHandler.Post (method, options, encoding);
 		}
 
+		/// <summary>
+		/// Get the current service status for each monitored service on a server.
+		/// </summary>
 		public static string Status (object options, EncodeType encoding = EncodeType.JSON)
 		{
 			string method = "/Monitoring/Services/status";
 			return APIHandler.Post (method, options, encoding);
 		}
 
+		/// <summary>
+		/// Update service monitoring settings for a server, if they already exist.
+		/// </summary>
 		public static string Update (object options, EncodeType encoding = EncodeType.JSON)
 		{
 			string method = "/Monitoring/Services/update";

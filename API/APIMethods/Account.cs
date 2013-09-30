@@ -64,7 +64,6 @@ namespace APIMethods.Account
 		/// up to a maximum of 12 hours.  After 12 hours, the token will be expired permanently
 		/// and a new token will need to be retrieved using the original password for your user.
 		/// </summary>
-
 		public static string Token (object options, EncodeType encoding = EncodeType.JSON)
 		{
 			string method = "/Account/Auth/token";
