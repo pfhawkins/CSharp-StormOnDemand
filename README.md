@@ -75,8 +75,8 @@ All of the below use the APIMethods helper classes, you can get the same output 
 	}
 
 	IPDetailsRequest req = new IPDetailsRequest();
-	req.uniq_id = "QU5YHP";
-	req.ip = "64.91.233.137";
+	req.uniq_id = "ABCDEF";
+	req.ip = "123.45.67.89";
 	// Builds JSON from IPDetailsRequest and stores the response from the API in the APIResponse object
 	IPDetailsResponse res = JsonConvert.DeserializeObject<IPDetailsResponse>( APIMethods.Network.IP.Details( req ));
 	
