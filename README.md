@@ -6,7 +6,7 @@ C# Library to assist with using the Storm On Demand API.
 Uses Newtonsoft's JSON library, Modified for Liquid Web's Storm API
 Compatible with .Net 3.5 on Linux and .Net 3.0, 3.5, 4, 4.5 on Windows
 
-Can deserialize/serialize Classes, Hashtables, Dictionarys, Objects, Dynamic Objects to and from JSON or XML format.
+Can deserialize/serialize Classes, Hashtables, Dictionaries, Objects, Dynamic Objects to and from JSON or XML format.
 
 The APIMethods folder isn't required. It's just a set of helper classes there to make it easier when using an IDE 
 with intellisense to remember the methods Along with the commenting that will display as tooltips for each method.
@@ -34,7 +34,7 @@ All of the below use the APIMethods helper classes, you can get the same output 
 
 	string result = APIMethods.Storm.Config.List( configList.values );
 
-#### Using Dictionarys or Hashtables instead of a dynamic object
+#### Using Dictionaries or Hashtables instead of a dynamic object
 
 	// Storm/Config/list example
 
