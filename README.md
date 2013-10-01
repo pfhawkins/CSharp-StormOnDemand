@@ -23,7 +23,7 @@ Throughout the examples its implied you set the username and password in the aut
 Auth.username = user;
 Auth.password = password; 
 
-### All of the below use the APIMethods helper classes, you can get the same output without using them simply using APIHandler.Post and passing in the method with the object. ie: string result = APIHandler.Post( "/Storm/Config/list", configList);
+All of the below use the APIMethods helper classes, you can get the same output without using them simply using APIHandler.Post and passing in the method with the object. ie: string result = APIHandler.Post( "/Storm/Config/list", configList);
 
 #### using GenericRequest dynamic object class
  
