@@ -54,3 +54,31 @@ All of the below use the APIMethods helper classes, you can get the same output 
 	stormConfig.category = "storm";
 
 	string result = APIMethods.Storm.Config.List( stormConfig );
+
+#### Storing API results into a class object
+
+	// Examples using classes for the APIRequest and one to store the APIResponse
+
+	public class IPDetailsRequest
+	{
+		public string uniq_id { get; set; }
+		public string ip { get; set; }
+	}
+
+	public class IPDetailsResponse
+	{
+		public string broadcast { get; set; }
+		public string gateway{ get; set; }
+		public string ip { get; set; }
+		public string netmask { get; set; }
+		public string id { get; set; }
+	}
+
+	IPDetailsRequest req = new IPDetailsRequest();
+	req.uniq_id = "QU5YHP";
+	req.ip = "64.91.233.137";
+	// Builds JSON from IPDetailsRequest and stores the response from the API in the APIResponse object
+	IPDetailsResponse res = JsonConvert.DeserializeObject<IPDetailsResponse>( APIMethods.Network.IP.Details( req ));
+	
+	// Can access members of the object as any other class
+	string serverIP =  res.ip ;
