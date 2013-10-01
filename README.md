@@ -18,7 +18,39 @@ properties->values into valid JSON strings.
 ## Examples 
 
 The following examples show how to build API requests with and without the helper classes or dynamic classes.
+Throughout the examples its implied you set the username and password in the auth.cs via
 
-#### With APIMethods helper classes 
+Auth.username = user;
+Auth.password = password; 
 
-#### Without APIMethods helper classes
+### All of the below use the APIMethods helper classes, you can get the same output without using them simply using APIHandler.Post and passing in the method with the object. ie: string result = APIHandler.Post( "/Storm/Config/list", configList);
+
+#### using GenericRequest dynamic object class
+ 
+	// Storm/Config/list example
+
+	dynamic configList = new GenericRequest();
+	configList.category = "storm";	// will parse this into json as { "category" : "storm" }
+
+	string result = APIMethods.Storm.Config.List( configList.values );
+
+#### Using Dictionarys or Hashtables instead of a dynamic object
+
+	// Storm/Config/list example
+
+	Dictionary<string, dynamic> configList = new Dictionary<string, dynamic>();
+	configList.Add ("category", "storm");
+
+	string result = APIMethods.Storm.Config.List( configList );
+
+#### Using a defined class object to serialize into JSON
+
+	public class StormConfigList
+	{
+		public string category { get; set; }
+	}
+
+	StormConfigList stormConfig = new StormConfigList();
+	stormConfig.category = "storm";
+
+	string result = APIMethods.Storm.Config.List( stormConfig );
